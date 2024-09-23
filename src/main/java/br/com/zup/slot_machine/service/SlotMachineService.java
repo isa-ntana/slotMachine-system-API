@@ -8,53 +8,53 @@ import java.util.*;
 @Service
 public class SlotMachineService {
     public List<MachineDTO> getMachine() {
-        int pontos = 0;
-        int dificuldade = 3;
-        List<String> itens = Arrays.asList("Banana", "Morango", "Estrela");
-        List<String> sorteios = new ArrayList<>();
-        List<MachineDTO> resultadoDTOs = new ArrayList<>();
+        int points = 0;
+        int dificulty = 3;
+        List<String> items = Arrays.asList("Banana", "Strawberry", "Star");
+        List<String> sweepstake = new ArrayList<>();
+        List<MachineDTO> resultDTOs = new ArrayList<>();
 
-        for (int indice = 0; indice < dificuldade; indice++) {
-            int sorteio = (int) (Math.random() * itens.size());
-            String itemSorteado = itens.get(sorteio);
-            sorteios.add(itemSorteado);
-            pontos += calcularPontos(itemSorteado);
-            System.out.print(itemSorteado + " | ");
+        for (int index = 0; index < dificulty; index++) {
+            int sortition = (int) (Math.random() * items.size());
+            String itemDrawn = items.get(sortition);
+            sweepstake.add(itemDrawn);
+            points += calculatePoints(itemDrawn);
+            System.out.print(itemDrawn + " | ");
         }
 
-        boolean todasIguais = todasIguais(sorteios);
-        if (todasIguais) {
-            pontos *= 100;
+        boolean allEqual = suchlikeItem(sweepstake);
+        if (allEqual) {
+            points *= 100;
         }
 
-        System.out.println("\nPontos obtidos: " + pontos);
+        System.out.println("\n Points: " + points);
 
-        MachineDTO resultadoDTO = new MachineDTO();
-        resultadoDTO.setFirstSymbol(sorteios.get(0));
-        resultadoDTO.setSecondSymbol(sorteios.get(1));
-        resultadoDTO.setThirdSymbol(sorteios.get(2));
-        resultadoDTO.setTotalPoints(pontos);
+        MachineDTO resultDTO = new MachineDTO();
+        resultDTO.setFirstSymbol(sweepstake.get(0));
+        resultDTO.setSecondSymbol(sweepstake.get(1));
+        resultDTO.setThirdSymbol(sweepstake.get(2));
+        resultDTO.setTotalPoints(points);
 
-        resultadoDTOs.add(resultadoDTO);
-        return resultadoDTOs;
+        resultDTOs.add(resultDTO);
+        return resultDTOs;
     }
 
-    private int calcularPontos(String item) {
+    private int calculatePoints(String item) {
         if (item.equals("Banana")) {
             return 10;
-        } else if (item.equals("Morango")) {
+        } else if (item.equals("Strawberry")) {
             return 20;
-        } else if (item.equals("Estrela")) {
+        } else if (item.equals("Star")) {
             return 40;
         } else {
-            throw new RuntimeException("Erro ao roletar");
+            throw new RuntimeException("Error");
         }
     }
 
-    private boolean todasIguais(List<String> sorteios) {
-        String primeiroItem = sorteios.get(0);
-        for (String item : sorteios) {
-            if (!item.equals(primeiroItem)) {
+    private boolean suchlikeItem(List<String> sweepstake) {
+        String firstItem = sweepstake.get(0);
+        for (String item : sweepstake) {
+            if (!item.equals(firstItem)) {
                 return false;
             }
         }
