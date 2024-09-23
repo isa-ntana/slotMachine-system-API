@@ -9,12 +9,12 @@ import java.util.*;
 public class SlotMachineService {
     public List<MachineDTO> getMachine() {
         int points = 0;
-        int dificulty = 3;
+        int difficulty = 3;
         List<String> items = Arrays.asList("Banana", "Strawberry", "Star");
         List<String> sweepstake = new ArrayList<>();
         List<MachineDTO> resultDTOs = new ArrayList<>();
 
-        for (int index = 0; index < dificulty; index++) {
+        for (int index = 0; index < difficulty; index++) {
             int sortition = (int) (Math.random() * items.size());
             String itemDrawn = items.get(sortition);
             sweepstake.add(itemDrawn);
