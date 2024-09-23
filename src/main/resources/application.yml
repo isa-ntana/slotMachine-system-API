@@ -1,0 +1,6 @@
+sprint:
+  application:
+    name: slot_machine
+
+server:
+  port: 8080
