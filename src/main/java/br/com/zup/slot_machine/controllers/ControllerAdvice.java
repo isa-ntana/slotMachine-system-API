@@ -16,9 +16,9 @@ public class ControllerAdvice {
         exception.getBindingResult().getFieldErrors().forEach(fieldError -> {
             String field = fieldError.getField();
             String message = fieldError.getDefaultMessage();
-
             errors.put(field, message);
         });
+
         return errors;
     }
 }
