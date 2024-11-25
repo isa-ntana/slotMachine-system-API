@@ -39,7 +39,7 @@ public class SlotMachineService {
         return resultDTOs;
     }
 
-    private int calculatePoints(String item) {
+    public int calculatePoints(String item) {
         if (item.equals("Banana")) {
             return 10;
         } else if (item.equals("Strawberry")) {
@@ -51,7 +51,7 @@ public class SlotMachineService {
         }
     }
 
-    private boolean suchlikeItem(List<String> sweepstake) {
+    public boolean suchlikeItem(List<String> sweepstake) {
         String firstItem = sweepstake.get(0);
         for (String item : sweepstake) {
             if (!item.equals(firstItem)) {
